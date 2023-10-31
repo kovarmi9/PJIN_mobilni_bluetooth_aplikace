@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -15,6 +8,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button, // Přidáno
 } from 'react-native';
 
 import {
@@ -62,6 +56,11 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const handlePress = () => {
+    // Zatím nic nedělá.
+    console.log('Tlačítko bylo stisknuto.');
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -71,6 +70,8 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
+        {/* Přidáno */}
+        <Button title="Připojit Bluetooth zařízení" onPress={handlePress} />
         <Header />
         <View
           style={{

@@ -8,7 +8,7 @@ import {
   Text,
   useColorScheme,
   View,
-  Button, // Přidáno
+  TouchableOpacity, // Přidáno
 } from 'react-native';
 
 import {
@@ -67,11 +67,16 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      {/* Přidáno */}
+      <TouchableOpacity onPress={handlePress} style={styles.buttonBlue}>
+        <Text style={styles.buttonText}>PŘIPOJIT BLUETOOTH ZAŘÍZENÍ</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handlePress} style={styles.buttonWhite}>
+        <Text style={styles.buttonTextBlack}>EXPORT SOUBORŮ Z SD KARTY</Text>
+      </TouchableOpacity>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        {/* Přidáno */}
-        <Button title="Připojit Bluetooth zařízení" onPress={handlePress} />
         <Header />
         <View
           style={{
@@ -114,6 +119,26 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  
+   // Přidáno
+   buttonBlue: {
+     backgroundColor: 'blue',
+     padding: 10,
+     alignItems: 'center',
+     marginBottom:10
+   },
+   buttonWhite: {
+     backgroundColor: 'white',
+     padding:10,
+     alignItems:'center',
+     marginBottom:10
+   },
+   buttonText:{
+     color:'white'
+   },
+   buttonTextBlack:{
+     color:'black'
+   }
 });
 
 export default App;

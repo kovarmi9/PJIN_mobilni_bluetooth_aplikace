@@ -22,6 +22,7 @@ import {
 
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
+import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 
 // Definice typu pro vlastnosti komponenty Section
 type SectionProps = PropsWithChildren<{
@@ -65,10 +66,16 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  //komponenta pro tlačítko
-  const handlePress = () => {
+  //nastavení toho co komponenta pro tlačítko
+
+  const handleBluetoothPress = () => {
     // Zatím nic nedělá.
-    console.log('Tlačítko bylo stisknuto.');
+    console.log('Tlačítko Bluetooth bylo stisknuto.');
+  };
+
+  const handleSouboryPress = () => {
+    // Zatím nic nedělá.
+    console.log('Tlačítko Soubory bylo stisknuto.');
   };
 
   // věci co vraci hlavní komponenta
@@ -85,7 +92,7 @@ function App(): JSX.Element {
       <Hlavicka 
       title="
       Aplikace pro export dat z Arduina" 
-      text="tato aplikace slouží pro bluetooth export dat z arduina více informací je dostupných na:" 
+      text="tato aplikace slouží pro export dat z arduina pomocí bluetooth spojení. Více informací je dostupných na: " 
       link="https://github.com/kovarmi9/PJIN_mobilni_bluetooth_aplikace/
       " 
       />
@@ -94,12 +101,18 @@ function App(): JSX.Element {
 
 
       {/* Přidáno */}
-      <TouchableOpacity onPress={handlePress} style={styles.buttonBlue}>
-        <Text style={styles.buttonText}>PŘIPOJIT BLUETOOTH ZAŘÍZENÍ</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handlePress} style={styles.buttonWhite}>
-        <Text style={styles.buttonTextBlack}>EXPORT SOUBORŮ Z SD KARTY</Text>
-      </TouchableOpacity>
+			<TlacitkoBluetooth 
+			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍ" 
+			  onPress={handleBluetoothPress} 
+			  color="blue" 
+			  textColor="white" 
+			/>
+			<TlacitkoSoubory 
+			  title="EXPORT SOUBORŮ Z SD KARTY" 
+			  onPress={handleSouboryPress} 
+			  color="white" 
+			  textColor="black" 
+			/>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

@@ -1,3 +1,4 @@
+// import knihoven 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -8,7 +9,7 @@ import {
   Text,
   useColorScheme,
   View,
-  TouchableOpacity, // Přidáno
+  TouchableOpacity, // Přidána komponenta pro tlačítka
 } from 'react-native';
 
 import {
@@ -19,10 +20,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// Definice typu pro vlastnosti komponenty Section
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
+// Tvorba komponenty section pro sekci s nadpisem a textem
 function Section({children, title}: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -49,24 +52,35 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
+// hlavní komponenta aplikace
 function App(): JSX.Element {
+
+  // v případě že je mobil v tmavém režimu použije tmavé barevné schéma 
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  //komponenta pro tlačítko
   const handlePress = () => {
     // Zatím nic nedělá.
     console.log('Tlačítko bylo stisknuto.');
   };
 
+  // věci co vraci hlavní komponenta
   return (
+    // obsah uvnitř SafeAreaView bere ohledy na notch
     <SafeAreaView style={backgroundStyle}>
+      
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+
+      <Header />
+
+
       {/* Přidáno */}
       <TouchableOpacity onPress={handlePress} style={styles.buttonBlue}>
         <Text style={styles.buttonText}>PŘIPOJIT BLUETOOTH ZAŘÍZENÍ</Text>
@@ -74,15 +88,19 @@ function App(): JSX.Element {
       <TouchableOpacity onPress={handlePress} style={styles.buttonWhite}>
         <Text style={styles.buttonTextBlack}>EXPORT SOUBORŮ Z SD KARTY</Text>
       </TouchableOpacity>
+
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/*
+          přidává už předdefinovanou hlavočku "Welcome to react native"
+          <Header />
+        */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step _____ One">
+          <Section title="Step___ One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
           </Section>

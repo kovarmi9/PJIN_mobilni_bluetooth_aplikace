@@ -20,6 +20,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// import mých vlastních komponent
+import Hlavicka from './Moje_komponenty/Hlavicka';
+
 // Definice typu pro vlastnosti komponenty Section
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -78,7 +81,16 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
 
-      <Header />
+      {/*<Header />*/}
+      <Hlavicka 
+      title="
+      Aplikace pro export dat z Arduina" 
+      text="tato aplikace slouží pro bluetooth export dat z arduina více informací je dostupných na:" 
+      link="https://github.com/kovarmi9/PJIN_mobilni_bluetooth_aplikace/
+      " 
+      />
+
+
 
 
       {/* Přidáno */}

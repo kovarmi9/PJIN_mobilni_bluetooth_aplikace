@@ -101,15 +101,11 @@ function App(): JSX.Element {
       {/* Přidána tlačítka*/}
 			<TlacitkoBluetooth 
 			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍ" 
-			  onPress={handleBluetoothPress} 
-			  color="blue" 
-			  textColor="white" 
+			  onPress={handleBluetoothPress}
 			/>
 			<TlacitkoSoubory 
 			  title="EXPORT SOUBORŮ Z SD KARTY" 
-			  onPress={handleSouboryPress} 
-			  color="white" 
-			  textColor="black" 
+			  onPress={handleSouboryPress}
 			/>
 
       <ScrollView
@@ -119,7 +115,10 @@ function App(): JSX.Element {
           přidává už předdefinovanou hlavočku "Welcome to react native"
           <Header />
         */}
-        <Radek text="ZAZNAM.TXT          31.10.2023"/>
+        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 15:27"/>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

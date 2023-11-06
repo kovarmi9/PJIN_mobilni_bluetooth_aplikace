@@ -1,25 +1,26 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, useColorScheme } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface TlacitkoProps {
   title: string;
   onPress: () => void;
-  color: string;
-  textColor: string;
 }
 
-const TlacitkoBluetooth: React.FC<TlacitkoProps> = ({ title, onPress, color, textColor }) => {
+const TlacitkoBluetooth: React.FC<TlacitkoProps> = ({ title, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: color }]}>
-      <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: 'blue' }]}>
+      <Text style={[styles.buttonText, { color: 'white' }]}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-const TlacitkoSoubory: React.FC<TlacitkoProps> = ({ title, onPress, color, textColor }) => {
+const TlacitkoSoubory: React.FC<TlacitkoProps> = ({ title, onPress }) => {
+  const isDarkMode = useColorScheme() === 'dark';
+
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: color }]}>
-      <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor: isDarkMode ? Colors.darker : Colors.white }]}>
+      <Text style={[styles.buttonText, { color: isDarkMode ? Colors.white : Colors.black }]}>{title}</Text>
     </TouchableOpacity>
   );
 };

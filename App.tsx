@@ -9,7 +9,6 @@ import {
   Text,
   useColorScheme,
   View,
-  TouchableOpacity, // Přidána komponenta pro tlačítka
 } from 'react-native';
 
 import {
@@ -23,6 +22,7 @@ import {
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
 import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
+import Radek from './Moje_komponenty/Radek';
 
 // Definice typu pro vlastnosti komponenty Section
 type SectionProps = PropsWithChildren<{
@@ -63,8 +63,9 @@ function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? Colors.black : Colors.lighter,
   };
+  
 
   //nastavení toho co komponenta pro tlačítko
 
@@ -97,10 +98,7 @@ function App(): JSX.Element {
       " 
       />
 
-
-
-
-      {/* Přidáno */}
+      {/* Přidána tlačítka*/}
 			<TlacitkoBluetooth 
 			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍ" 
 			  onPress={handleBluetoothPress} 
@@ -121,6 +119,7 @@ function App(): JSX.Element {
           přidává už předdefinovanou hlavočku "Welcome to react native"
           <Header />
         */}
+        <Radek text="ZAZNAM.TXT          31.10.2023"/>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

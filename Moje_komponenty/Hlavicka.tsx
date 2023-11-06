@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Linking } from 'react-native';
+import { View, Text, StyleSheet, Linking, useColorScheme } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface HlavickaProps {
   title: string;
@@ -8,20 +9,21 @@ interface HlavickaProps {
 }
 
 const Hlavicka: React.FC<HlavickaProps> = ({ title, text, link }) => {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.text}>
-          {text}
-          <Text style={styles.link} onPress={() => Linking.openURL(link)}> Odkaz</Text>
-        </Text>
-      </View>
-    );
-  };
+  const isDarkMode = useColorScheme() === 'dark';
+
+  return (
+    <View style={[styles.container, {backgroundColor: isDarkMode ? Colors.darker : Colors.lighter}]}>
+      <Text style={[styles.title, {color: isDarkMode ? Colors.white : Colors.black}]}>{title}</Text>
+      <Text style={[styles.text, {color: isDarkMode ? Colors.white : Colors.black}]}>
+        {text}
+        <Text style={styles.link} onPress={() => Linking.openURL(link)}> Odkaz</Text>
+      </Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f8f8f8',
     justifyContent: 'center',
     alignItems: 'center',
     height: 100,
@@ -41,8 +43,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   link: {
-    color: 'blue',
+    color: 'skyblue',
   },
 });
 
 export default Hlavicka;
+

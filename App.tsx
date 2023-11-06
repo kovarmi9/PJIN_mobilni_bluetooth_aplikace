@@ -19,6 +19,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// import ikon z: npm install react-native-vector-icons
+// dále je třeba dát do terminálu: npm install --save-dev @types/react-native-vector-icons
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
 import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';

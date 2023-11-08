@@ -21,7 +21,23 @@ import {
 
 // import ikon z: npm install react-native-vector-icons
 // dále je třeba dát do terminálu: npm install --save-dev @types/react-native-vector-icons
-import Icon from 'react-native-vector-icons/FontAwesome';
+//import Icon from 'react-native-vector-icons/FontAwesome';
+
+//import pro práci s bluetooth a pro rozpoznání platformy
+import { Linking, Platform, Alert } from 'react-native';
+
+// import knihovny pro práci s bluetooth npm install --save react-native-ble-plx
+// ANDROID_APP_projekt\android\app\src\main\AndroidManifest.xml přidáno
+//<uses-permission android:name="android.permission.BLUETOOTH"/>
+//<uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+//<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+//<uses-permission android:name="android.permission.BLUETOOTH_SCAN"/>
+//<uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+// importuju pro čtení a celkovou komunikaci přes bluetooth
+import { BleManager } from 'react-native-ble-plx';
+
+
+
 
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
@@ -74,14 +90,46 @@ function App(): JSX.Element {
   //nastavení toho co komponenta pro tlačítko
 
   const handleBluetoothPress = () => {
-    // Zatím nic nedělá.
-    console.log('Tlačítko Bluetooth bylo stisknuto.');
+    Linking.sendIntent('android.settings.BLUETOOTH_SETTINGS');
   };
+  
+  const manager = new BleManager();
 
   const handleSouboryPress = () => {
-    // Zatím nic nedělá.
-    console.log('Tlačítko Soubory bylo stisknuto.');
+    manager.connectedDevices([]).then((devices) => {
+      if (devices.length === 0) {
+        console.log('No connected devices found');
+        return;
+      }
+  
+      const device = devices[0];
+  
+      device.discoverAllServicesAndCharacteristics()
+        .then((device) => {
+          device.services().then((services) => {
+            services.forEach((service) => {
+              service.characteristics().then((characteristics) => {
+                characteristics.forEach((characteristic) => {
+                  if (characteristic.isReadable) {
+                    characteristic.read()
+                      .then((characteristic) => {
+                        console.log('Received data from Arduino:', characteristic.value);
+                      })
+                      .catch((error) => {
+                        console.error('Failed to read data from Arduino:', error);
+                      });
+                  }
+                });
+              });
+            });
+          });
+        })
+        .catch((error) => {
+          console.error('Failed to discover services and characteristics:', error);
+        });
+    });
   };
+  
 
   // věci co vraci hlavní komponenta
   return (

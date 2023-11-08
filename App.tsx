@@ -8,7 +8,9 @@ import {
   StyleSheet,
   Text,
   useColorScheme,
-  View,
+  View, 
+  Linking, 
+  Alert, 
 } from 'react-native';
 
 import {
@@ -23,8 +25,6 @@ import {
 // dále je třeba dát do terminálu: npm install --save-dev @types/react-native-vector-icons
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
-//import pro práci s bluetooth a pro rozpoznání platformy
-import { Linking, Platform, Alert } from 'react-native';
 
 // import knihovny pro práci s bluetooth npm install --save react-native-ble-plx
 // ANDROID_APP_projekt\android\app\src\main\AndroidManifest.xml přidáno
@@ -36,45 +36,21 @@ import { Linking, Platform, Alert } from 'react-native';
 // importuju pro čtení a celkovou komunikaci přes bluetooth
 import { BleManager } from 'react-native-ble-plx';
 
-
-
-
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
 import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
+import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
+import { handleSouboryPress } from './Moje_komponenty/Souborypress';
+
+export const useAppColorScheme = () => {
+  return useColorScheme() === 'dark';
+};
 
 // Definice typu pro vlastnosti komponenty Section
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-
-// Tvorba komponenty section pro sekci s nadpisem a textem
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -86,50 +62,7 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.black : Colors.lighter,
   };
   
-
-  //nastavení toho co komponenta pro tlačítko
-
-  const handleBluetoothPress = () => {
-    Linking.sendIntent('android.settings.BLUETOOTH_SETTINGS');
-  };
-  
   const manager = new BleManager();
-
-  const handleSouboryPress = () => {
-    manager.connectedDevices([]).then((devices) => {
-      if (devices.length === 0) {
-        console.log('No connected devices found');
-        return;
-      }
-  
-      const device = devices[0];
-  
-      device.discoverAllServicesAndCharacteristics()
-        .then((device) => {
-          device.services().then((services) => {
-            services.forEach((service) => {
-              service.characteristics().then((characteristics) => {
-                characteristics.forEach((characteristic) => {
-                  if (characteristic.isReadable) {
-                    characteristic.read()
-                      .then((characteristic) => {
-                        console.log('Received data from Arduino:', characteristic.value);
-                      })
-                      .catch((error) => {
-                        console.error('Failed to read data from Arduino:', error);
-                      });
-                  }
-                });
-              });
-            });
-          });
-        })
-        .catch((error) => {
-          console.error('Failed to discover services and characteristics:', error);
-        });
-    });
-  };
-  
 
   // věci co vraci hlavní komponenta
   return (
@@ -141,7 +74,7 @@ function App(): JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
 
-      {/*<Header />*/}
+      {/*Přidána hlavička programu*/}
       <Hlavicka 
       title="
       Aplikace pro export dat z Arduina" 
@@ -163,10 +96,6 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        {/*
-          přidává už předdefinovanou hlavočku "Welcome to react native"
-          <Header />
-        */}
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:15"/>
@@ -187,21 +116,6 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-            {/*
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-        screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />*/}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -209,23 +123,6 @@ function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  
    // Přidáno
    buttonBlue: {
      backgroundColor: 'blue',

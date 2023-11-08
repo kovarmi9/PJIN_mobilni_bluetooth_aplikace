@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   nazev: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 'bold',
   },
   datum: {
-    fontSize: 12,
+    fontSize: 10,
     alignSelf: 'center',
   },
   buttonsContainer: {

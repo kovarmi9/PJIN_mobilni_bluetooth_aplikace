@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 0,
     marginBottom: 5,
+    borderRadius: 25, // Toto zaoblení rohů
   },
   buttonText: {
     fontSize: 16,
@@ -38,3 +39,4 @@ const styles = StyleSheet.create({
 });
 
 export { TlacitkoBluetooth, TlacitkoSoubory };
+

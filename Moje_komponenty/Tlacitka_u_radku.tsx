@@ -16,13 +16,13 @@ const MojeTlacitko: React.FC<TlacitkoProps> = ({ title, onPress }) => {
 
 const styles = StyleSheet.create({
   button: {
-    marginLeft: 5,
+    marginLeft: 10,
     padding: 5,
     backgroundColor: '#DDDDDD',
     borderRadius: 5,
   },
   buttonText: {
-    fontSize: 12,
+    fontSize: 15,
   },
 });
 

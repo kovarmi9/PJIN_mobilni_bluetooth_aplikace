@@ -1,6 +1,6 @@
 // import knihoven 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type {PropsWithChildren} from 'react';// když je takhle zešedlá tak se momentálně nepoužívá ale zatím jsem je tu nechal kdyby se ještě někdy hodila
 import {
   SafeAreaView,
   ScrollView,
@@ -21,6 +21,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// chtěl jsem přidat nějaké hezké ikony ale nefungovalo mi to zajsem zatím použi emoji
 // import ikon z: npm install react-native-vector-icons
 // dále je třeba dát do terminálu: npm install --save-dev @types/react-native-vector-icons
 //import Icon from 'react-native-vector-icons/FontAwesome';
@@ -42,15 +43,7 @@ import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-
-export const useAppColorScheme = () => {
-  return useColorScheme() === 'dark';
-};
-
-// Definice typu pro vlastnosti komponenty Section
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+import Styles from './Moje_komponenty/styles';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -96,14 +89,14 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="copa.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="tuto.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="je?.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="za.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="vejmysly.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="obr.JPG   " datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM.TXT" datum="1.1.2000 00:00"/>
+        <Radek nazev="uz" datum="31.10.2023 14:15"/>
+        <Radek nazev="miaA.TXT" datum="1.1.2000 00:00"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="mereni.csv" datum="31.10.2023 14:13"/>
         <Radek nazev="ZAZNAM_GNSS.TXT" datum="31.10.2023 14:15"/>
@@ -121,27 +114,5 @@ function App(): JSX.Element {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-   // Přidáno
-   buttonBlue: {
-     backgroundColor: 'blue',
-     padding: 10,
-     alignItems: 'center',
-     marginBottom:10
-   },
-   buttonWhite: {
-     backgroundColor: 'white',
-     padding:10,
-     alignItems:'center',
-     marginBottom:10
-   },
-   buttonText:{
-     color:'white'
-   },
-   buttonTextBlack:{
-     color:'black'
-   }
-});
 
 export default App;

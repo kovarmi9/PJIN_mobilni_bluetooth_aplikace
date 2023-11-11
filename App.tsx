@@ -15,10 +15,6 @@ import {
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 // chtěl jsem přidat nějaké hezké ikony ale nefungovalo mi to zajsem zatím použi emoji

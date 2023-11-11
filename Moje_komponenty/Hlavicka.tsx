@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Linking, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-interface HlavickaProps {
+type HlavickaProps = {
   title: string;
   text: string;
   link: string;

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Tlacitka_u_radku from './Tlacitka_u_radku';
 
-interface RadekProps {
+type RadekProps = {
   nazev: string;
   datum: string;
 

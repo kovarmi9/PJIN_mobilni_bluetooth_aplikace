@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-interface TlacitkoProps {
+type TlacitkoProps = {
   title: string;
   onPress: () => void;
 }

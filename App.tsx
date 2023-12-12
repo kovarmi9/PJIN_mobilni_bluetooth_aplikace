@@ -1,4 +1,4 @@
-// import knihoven ahoj 
+// import knihoven tak co vidíš tenhle text? 
 import React from 'react';
 import type {PropsWithChildren} from 'react';// když je takhle zešedlá tak se momentálně nepoužívá ale zatím jsem je tu nechal kdyby se ještě někdy hodila
 import {

@@ -39,7 +39,7 @@ import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-import Styles from './Moje_komponenty/styles';
+
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {

@@ -1,4 +1,4 @@
-// import knihoven ahoj 
+// import knihoven 
 import React from 'react';
 import type {PropsWithChildren} from 'react';// když je takhle zešedlá tak se momentálně nepoužívá ale zatím jsem je tu nechal kdyby se ještě někdy hodila
 import {
@@ -53,7 +53,7 @@ function App(): JSX.Element {
   
   const manager = new BleManager();
 
-  // věci co vraci hlavní komponenta atd. atd.
+  // věci co vraci hlavní komponenta
   return (
     // obsah uvnitř SafeAreaView bere ohledy na notch
     <SafeAreaView style={backgroundStyle}>

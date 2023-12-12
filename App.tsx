@@ -53,7 +53,7 @@ function App(): JSX.Element {
   
   const manager = new BleManager();
 
-  // věci co vraci hlavní komponenta atd. atd.
+  // věci co vraci hlavní komponenta 
   return (
     // obsah uvnitř SafeAreaView bere ohledy na notch
     <SafeAreaView style={backgroundStyle}>

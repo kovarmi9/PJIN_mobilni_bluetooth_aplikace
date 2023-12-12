@@ -91,7 +91,7 @@ function App(): JSX.Element {
         <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>
         <Radek nazev="máš.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="obr.JPG   " datum="31.10.2023 14:13"/>
-        <Radek nazev="uz" datum="31.10.2023 14:15"/>
+        <Radek nazev="coooo" datum="31.10.2023 14:15"/>
         <Radek nazev="miaA.TXT" datum="1.1.2000 00:00"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="mereni.csv" datum="31.10.2023 14:13"/>

@@ -39,7 +39,7 @@ import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-import Styles from './Moje_komponenty/styles';
+
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -85,13 +85,13 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="copa.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="tuto.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="je?.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="za.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="vejmysly.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ahoj.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="kryštofe.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="máš.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="obr.JPG   " datum="31.10.2023 14:13"/>
-        <Radek nazev="uz" datum="31.10.2023 14:15"/>
+        <Radek nazev="coooo" datum="31.10.2023 14:15"/>
         <Radek nazev="miaA.TXT" datum="1.1.2000 00:00"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="mereni.csv" datum="31.10.2023 14:13"/>

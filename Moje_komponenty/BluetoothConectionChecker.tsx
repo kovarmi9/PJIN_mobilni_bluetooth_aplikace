@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BleManager } from 'react-native-ble-plx';
 
-const useBluetoothConnectionChecker = () => {
+const BluetoothConnectionChecker = () => {
   const [isDeviceConnected, setIsDeviceConnected] = useState(false);
 
   useEffect(() => {
@@ -18,4 +18,4 @@ const useBluetoothConnectionChecker = () => {
   return isDeviceConnected;
 };
 
-export default useBluetoothConnectionChecker;
+export default BluetoothConnectionChecker;

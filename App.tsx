@@ -39,7 +39,7 @@ import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-import useBluetoothConnectionChecker from './Moje_komponenty/BluetoothConnectionChecker'; // Přidáno
+//import BluetoothConnectionChecker from './Moje_komponenty/BluetoothConnectionChecker'; // Přidáno
 
 
 // hlavní komponenta aplikace

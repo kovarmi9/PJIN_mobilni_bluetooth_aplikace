@@ -87,7 +87,7 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Radek nazev="nazdar.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="kryštofe.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="Kryštofe.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>
         <Radek nazev="máš.TXT" datum="31.10.2023 14:11"/>

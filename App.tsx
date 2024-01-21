@@ -39,8 +39,7 @@ import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
 import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-//import BluetoothConnectionChecker from './Moje_komponenty/BluetoothConnectionChecker'; // Přidáno
-
+import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pripojeni';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {

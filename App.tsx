@@ -50,6 +50,9 @@ function App(): JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.black : Colors.lighter,
   };
+
+  //For BLE Permissions
+  //const {requestPermissions, scanForDevices, allDevices} = useBLE();
   
   const manager = new BleManager();
 

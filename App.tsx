@@ -88,7 +88,7 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="nazdar.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="cegobelo.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="Kryštofe.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>

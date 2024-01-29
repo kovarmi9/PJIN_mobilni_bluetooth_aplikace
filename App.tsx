@@ -1,6 +1,7 @@
 // import knihoven
 import React from 'react';
 import type {PropsWithChildren} from 'react';// když je takhle zešedlá tak se momentálně nepoužívá ale zatím jsem je tu nechal kdyby se ještě někdy hodila
+import  {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -54,7 +55,20 @@ function App(): JSX.Element {
 
   //For BLE Permissions
   //const {requestPermissions, scanForDevices, allDevices} = useBLE();
+  
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const {requestPermissions} = UseBLE();
+
+  const hideModal = () => {
+    setIsModalVisible(false);
+  };
+
+  const openModal = async () => {
+    requestPermissions((isGaranted:boolean) => {
+      //alert('The Android Permission is Garanted? ', isGaranted);
+    })
+    // setIsMedialVisible(true)
+  };
   
   const manager = new BleManager();
 
@@ -90,7 +104,7 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="caoo0000.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="caoo00001111.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="Kryštofe.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>

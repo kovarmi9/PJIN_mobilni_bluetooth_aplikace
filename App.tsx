@@ -40,6 +40,7 @@ import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
 import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pripojeni';
+import UseBLE from './Moje_komponenty/UseBLE';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -53,6 +54,7 @@ function App(): JSX.Element {
 
   //For BLE Permissions
   //const {requestPermissions, scanForDevices, allDevices} = useBLE();
+  const {requestPermissions} = UseBLE();
   
   const manager = new BleManager();
 
@@ -88,7 +90,7 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="caoo.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="caoo0000.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="Kryštofe.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>

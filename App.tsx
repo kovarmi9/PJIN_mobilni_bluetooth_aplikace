@@ -1,7 +1,7 @@
 // import knihoven
 import React from 'react';
 import type {PropsWithChildren} from 'react';// když je takhle zešedlá tak se momentálně nepoužívá ale zatím jsem je tu nechal kdyby se ještě někdy hodila
-import  {useState} from 'react';
+import  {useState,useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -43,6 +43,7 @@ import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
 import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pripojeni';
 import UseBLE from './Moje_komponenty/UseBLE';
+import RequestPermissions from './Moje_komponenty/RequestPermissions';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -58,6 +59,9 @@ function App(): JSX.Element {
 
   //For BLE Permissions
   //const {requestPermissions, scanForDevices, allDevices} = useBLE();
+
+  // Přidána stavová proměnná pro sledování stavu připojení
+  const [connected, setConnected] = useState(false);
 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const {requestPermissions} = UseBLE();
@@ -94,6 +98,32 @@ function App(): JSX.Element {
         });
     }
   });
+
+  useEffect(() => {
+    const manager = new BleManager();
+
+    manager.startDeviceScan(null, null, (error, device) => {
+      if (error) {
+        console.log(error);
+        return;
+      }
+    
+      // Přidána kontrola null
+      if (device && device.name === 'Niceboy HIVE pods 2') {
+        manager.stopDeviceScan();
+    
+        device.connect()
+          .then((device) => {
+            console.log('Připojeno k zařízení', device.name);
+            setConnected(true);  // Aktualizace stavu připojení
+          })
+          .catch((error) => {
+            console.log('Chyba při připojování k zařízení', error);
+            setConnected(false);  // Aktualizace stavu připojení
+          });
+      }
+    });
+  }, []);
   
   
 
@@ -107,6 +137,8 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+
+      <RequestPermissions />
 
       {/*Přidána hlavička programu*/}
       <Hlavicka 
@@ -128,6 +160,8 @@ function App(): JSX.Element {
 			/>
 
       {/*<Text style={{textAlign: 'center'}}>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>*/}
+
+      <Text>{connected ? 'Zařízení je připojeno' : 'Zařízení není připojeno'}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

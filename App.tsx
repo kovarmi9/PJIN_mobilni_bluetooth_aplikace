@@ -12,6 +12,7 @@ import {
   View, 
   Linking, 
   Alert, 
+  Dimensions,
 } from 'react-native';
 
 import {
@@ -53,6 +54,8 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.black : Colors.lighter,
   };
 
+  const screenHeight = Dimensions.get('window').height;
+
   //For BLE Permissions
   //const {requestPermissions, scanForDevices, allDevices} = useBLE();
 
@@ -73,7 +76,7 @@ function App(): JSX.Element {
   const manager = new BleManager();
 
   // Přidáme nový stav pro sledování připojení Bluetooth zařízení
-const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
+  const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
 
   // Aktualizujeme stav připojení zařízení
   const checkDeviceConnection = (deviceId: string) => {
@@ -121,7 +124,7 @@ const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
+        style={{...backgroundStyle, height: screenHeight}}>
         <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="ZAZNAM_3.TXT" datum="31.10.2023 14:15"/>
@@ -132,11 +135,11 @@ const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
         <Radek nazev="SYNCHRO_3.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="SYNCHRO_4.TXT" datum="1.1.2000 00:00"/>
         <Radek nazev="SYNCHRO_5.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="ZAZNAM_GNSS_1.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="ZAZNAM_GNSS_2.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM_GNSS_3.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM_GNSS_4.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="ZAZNAM_GNSS_5.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZ_GNSS_1.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ZAZ_GNSS_2.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZ_GNSS_3.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="ZAZ_GNSS_4.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="ZAZ_GNSS_5.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="info.TXT  " datum="31.10.2023 14:15"/>
         <View
           style={{

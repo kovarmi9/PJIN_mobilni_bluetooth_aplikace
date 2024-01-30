@@ -72,6 +72,22 @@ function App(): JSX.Element {
   
   const manager = new BleManager();
 
+  // Přidáme nový stav pro sledování připojení Bluetooth zařízení
+const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
+
+  // Aktualizujeme stav připojení zařízení
+  const checkDeviceConnection = (deviceId: string) => {
+    manager.isDeviceConnected(deviceId)
+      .then((isConnected) => {
+        setIsDeviceConnected(isConnected);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      
+      
+  };
+
   // věci co vraci hlavní komponenta 
   return (
     // obsah uvnitř SafeAreaView bere ohledy na notch
@@ -100,6 +116,8 @@ function App(): JSX.Element {
 			  title="EXPORT SOUBORŮ Z SD KARTY" 
 			  onPress={handleSouboryPress}
 			/>
+
+      <Text>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

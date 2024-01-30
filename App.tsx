@@ -75,21 +75,28 @@ function App(): JSX.Element {
   
   const manager = new BleManager();
 
-  // Přidáme nový stav pro sledování připojení Bluetooth zařízení
-  const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
+  manager.startDeviceScan(null, null, (error, device) => {
+    if (error) {
+      console.log(error);
+      return;
+    }
+  
+    // Přidána kontrola null
+    if (device && device.name === 'Niceboy HIVE pods 2') {
+      manager.stopDeviceScan();
+  
+      device.connect()
+        .then((device) => {
+          console.log('Připojeno k zařízení', device.name);
+        })
+        .catch((error) => {
+          console.log('Chyba při připojování k zařízení', error);
+        });
+    }
+  });
+  
+  
 
-  // Aktualizujeme stav připojení zařízení
-  const checkDeviceConnection = (deviceId: string) => {
-    manager.isDeviceConnected(deviceId)
-      .then((isConnected) => {
-        setIsDeviceConnected(isConnected);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      
-      
-  };
 
   // věci co vraci hlavní komponenta 
   return (
@@ -120,12 +127,12 @@ function App(): JSX.Element {
 			  onPress={handleSouboryPress}
 			/>
 
-      <Text style={{textAlign: 'center'}}>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>
+      {/*<Text style={{textAlign: 'center'}}>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>*/}
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{...backgroundStyle, height: screenHeight-240}}>
-        <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ZAZNAM_.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="ZAZNAM_3.TXT" datum="31.10.2023 14:15"/>
         <Radek nazev="ZAZNAM_4.TXT" datum="31.10.2023 15:27"/>

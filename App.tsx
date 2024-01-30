@@ -117,27 +117,27 @@ const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
 			  onPress={handleSouboryPress}
 			/>
 
-      <Text>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>
+      <Text style={{textAlign: 'center'}}>{isDeviceConnected ? "Zařízení je připojeno" : "Zařízení není připojeno"}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM_GNSS_1" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM_GNSS_2.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="SYNCHRONIZACE_1" datum="31.10.2023 14:11"/>
-        <Radek nazev="SYNCHRONIZACE_1" datum="31.10.2023 14:13"/>
-        <Radek nazev="coooo" datum="31.10.2023 14:15"/>
-        <Radek nazev="miaA.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="mereni.csv" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM_GNSS.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="001.MP3   " datum="31.10.2023 14:11"/>
-        <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZNAM_3.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="ZAZNAM_4.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="ZAZNAM_5.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="SYNCHRO_1.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="SYNCHRO_2.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="SYNCHRO_3.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="SYNCHRO_4.TXT" datum="1.1.2000 00:00"/>
+        <Radek nazev="SYNCHRO_5.TXT" datum="1.1.2000 00:00"/>
+        <Radek nazev="ZAZNAM_GNSS_1.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ZAZNAM_GNSS_2.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZNAM_GNSS_3.TXT" datum="31.10.2023 14:15"/>
+        <Radek nazev="ZAZNAM_GNSS_4.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="ZAZNAM_GNSS_5.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="info.TXT  " datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM.TXT" datum="1.1.1980 00:00"/>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

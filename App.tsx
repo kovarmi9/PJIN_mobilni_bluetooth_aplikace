@@ -67,7 +67,7 @@ function App(): JSX.Element {
     requestPermissions((isGaranted:boolean) => {
       //alert('The Android Permission is Garanted? ', isGaranted);
     })
-    // setIsMedialVisible(true)
+    setIsModalVisible(true)
   };
   
   const manager = new BleManager();
@@ -122,12 +122,12 @@ const [isDeviceConnected, setIsDeviceConnected] = useState<boolean>(false);
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Radek nazev="cao.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="Kryštofe.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="jak.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="se.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="máš.TXT" datum="31.10.2023 14:11"/>
-        <Radek nazev="obr.JPG   " datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:11"/>
+        <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
+        <Radek nazev="ZAZNAM_GNSS_1" datum="31.10.2023 14:15"/>
+        <Radek nazev="ZAZNAM_GNSS_2.TXT" datum="31.10.2023 15:27"/>
+        <Radek nazev="SYNCHRONIZACE_1" datum="31.10.2023 14:11"/>
+        <Radek nazev="SYNCHRONIZACE_1" datum="31.10.2023 14:13"/>
         <Radek nazev="coooo" datum="31.10.2023 14:15"/>
         <Radek nazev="miaA.TXT" datum="1.1.2000 00:00"/>
         <Radek nazev="ZAZNAM.TXT" datum="31.10.2023 14:11"/>

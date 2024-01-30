@@ -124,7 +124,7 @@ function App(): JSX.Element {
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={{...backgroundStyle, height: screenHeight}}>
+        style={{...backgroundStyle, height: screenHeight-240}}>
         <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:11"/>
         <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
         <Radek nazev="ZAZNAM_3.TXT" datum="31.10.2023 14:15"/>

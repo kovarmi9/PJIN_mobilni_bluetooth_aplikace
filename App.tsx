@@ -23,6 +23,7 @@ import { handleSouboryPress } from './Moje_komponenty/Souborypress';
 import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pripojeni';
 import UseBLE from './Moje_komponenty/UseBLE';
 import RequestPermissions from './Moje_komponenty/RequestPermissions';
+import SeznamRadku from './Moje_komponenty/Seznam_radku';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -117,22 +118,7 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{...backgroundStyle, height: screenHeight-217}}>
-        <Radek nazev="ZAZNAM_1.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZNAM_2.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZNAM_3.TXT" datum="31.10.2023 14:10"/>
-        <Radek nazev="ZAZNAM_4.TXT" datum="31.10.2023 12:27"/>
-        <Radek nazev="ZAZNAM_5.TXT" datum="31.10.2023 11:20"/>
-        <Radek nazev="SYNCHRO_1.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="SYNCHRO_2.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="SYNCHRO_3.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="SYNCHRO_4.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="SYNCHRO_5.TXT" datum="1.1.2000 00:00"/>
-        <Radek nazev="ZAZ_GNSS_1.TXT" datum="31.10.2023 14:15"/>
-        <Radek nazev="ZAZ_GNSS_2.TXT" datum="31.10.2023 14:13"/>
-        <Radek nazev="ZAZ_GNSS_3.TXT" datum="31.10.2023 14:10"/>
-        <Radek nazev="ZAZ_GNSS_4.TXT" datum="31.10.2023 15:27"/>
-        <Radek nazev="ZAZ_GNSS_5.TXT" datum="31.10.2023 11:20"/>
-        <Radek nazev="info.TXT  " datum="31.10.2023 11:20"/>
+        <SeznamRadku />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

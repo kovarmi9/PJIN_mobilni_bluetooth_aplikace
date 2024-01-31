@@ -77,7 +77,7 @@ function App(): JSX.Element {
     
       // Kontrola, zda bylo detekováno zařízení
       if (device) {
-        console.log('Detekováno zařízení', device.name);
+        //console.log('Detekováno zařízení', device.name);
         if (device.name !== null) { // Přidána kontrola null
           setDeviceName(device.name); // Uložení názvu zařízení
         }

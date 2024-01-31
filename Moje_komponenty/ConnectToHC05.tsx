@@ -21,7 +21,7 @@ const ConnectToHC05: React.FC<ConnectToHC05Props> = ({ setConnected, setDeviceNa
 
       // Kontrola, zda bylo detekováno zařízení
       if (device) {
-        console.log('Detekováno zařízení', device.id); // MAC adresa zařízení je uložena v 'device.id'
+        //console.log('Detekováno zařízení', device.id); // MAC adresa zařízení je uložena v 'device.id'
         if (device.id === '00:22:01:00:10:F6') { // Předpokládá se, že MAC adresa zařízení je '00:22:01:00:10:F6'
           // Zastaví skenování zařízení
           manager.stopDeviceScan();

@@ -24,6 +24,7 @@ import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pr
 import UseBLE from './Moje_komponenty/UseBLE';
 import RequestPermissions from './Moje_komponenty/RequestPermissions';
 import SeznamRadku from './Moje_komponenty/Seznam_radku';
+import ConnectToHC05 from './Moje_komponenty/ConnectToHC05';
 
 // hlavní komponenta aplikace
 function App(): JSX.Element {
@@ -103,10 +104,15 @@ function App(): JSX.Element {
       " 
       />
 
+      <ConnectToHC05 setConnected={setConnected} setDeviceName={setDeviceName} />
+
       {/* Přidána tlačítka*/}
 			<TlacitkoBluetooth 
 			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍ" 
-			  onPress={handleBluetoothPress}
+        onPress={() => {
+          handleBluetoothPress();
+        }}
+
 			/>
 			<TlacitkoSoubory 
 			  title="EXPORT SOUBORŮ Z SD KARTY" 
@@ -118,7 +124,7 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{...backgroundStyle, height: screenHeight-217}}>
-        <SeznamRadku />
+        {/*<SeznamRadku />*/}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

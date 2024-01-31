@@ -127,16 +127,20 @@ function App(): JSX.Element {
 
       <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno: ' + deviceName : 'Zařízení není připojeno ' + deviceName}</Text>
 
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={{...backgroundStyle, height: screenHeight-217}}>
-        <SeznamRadku />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-        </View>
-      </ScrollView>
+      {deviceName === "HC-05" && (
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={{...backgroundStyle, height: screenHeight-217}}>
+            
+          <SeznamRadku />
+          <View
+
+            style={{
+              backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            }}>
+          </View>
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 }

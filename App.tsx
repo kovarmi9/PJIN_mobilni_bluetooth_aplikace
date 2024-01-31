@@ -38,6 +38,8 @@ function App(): JSX.Element {
 
   const screenHeight = Dimensions.get('window').height;
 
+  const [isButtonPressed, setIsButtonPressed] = useState(false);
+
   // Přidána stavová proměnná pro sledování stavu připojení
   const [connected, setConnected] = useState(false);
 
@@ -112,19 +114,22 @@ function App(): JSX.Element {
         onPress={() => {
           handleBluetoothPress();
         }}
+			/>
 
-			/>
-			<TlacitkoSoubory 
-			  title="EXPORT SOUBORŮ Z SD KARTY" 
-			  onPress={handleSouboryPress}
-			/>
+      <TlacitkoSoubory 
+        title="EXPORT SOUBORŮ Z SD KARTY" 
+        onPress={() => {
+          handleSouboryPress();
+          setIsButtonPressed(true); // Nastaví 'isButtonPressed' na true po stisknutí tlačítka
+        }}
+      />
 
       <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno: ' + deviceName : 'Zařízení není připojeno'}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={{...backgroundStyle, height: screenHeight-217}}>
-        {/*<SeznamRadku />*/}
+        <SeznamRadku />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

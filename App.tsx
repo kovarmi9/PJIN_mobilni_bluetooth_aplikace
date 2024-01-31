@@ -121,10 +121,11 @@ function App(): JSX.Element {
         onPress={() => {
           handleSouboryPress();
           setIsButtonPressed(true); // Nastaví 'isButtonPressed' na true po stisknutí tlačítka
+          setDeviceName("HC-05"); // Nastaví 'deviceName' na "HC-05"
         }}
       />
 
-      <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno: ' + deviceName : 'Zařízení není připojeno'}</Text>
+      <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno: ' + deviceName : 'Zařízení není připojeno ' + deviceName}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

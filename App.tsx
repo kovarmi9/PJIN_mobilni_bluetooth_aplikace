@@ -74,6 +74,9 @@ function App(): JSX.Element {
       // Kontrola, zda bylo detekováno zařízení
       if (device) {
         console.log('Detekováno zařízení', device.name);
+        if (device.name !== null) { // Přidána kontrola null
+          setDeviceName(device.name); // Uložení názvu zařízení
+        }
       }
     });
   }, []);
@@ -109,7 +112,7 @@ function App(): JSX.Element {
 			  onPress={handleSouboryPress}
 			/>
 
-      <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno' : 'Zařízení není připojeno'}</Text>
+      <Text style={{textAlign: 'center'}}>{connected ? 'Zařízení je připojeno: ' + deviceName : 'Zařízení není připojeno'}</Text>
 
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"

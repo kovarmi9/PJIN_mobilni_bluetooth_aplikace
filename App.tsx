@@ -17,10 +17,8 @@ import { BleManager } from 'react-native-ble-plx';
 // import mých vlastních komponent
 import Hlavicka from './Moje_komponenty/Hlavicka';
 import { TlacitkoBluetooth, TlacitkoSoubory } from './Moje_komponenty/Tlacitka';
-import Radek from './Moje_komponenty/Radek';
 import handleBluetoothPress from './Moje_komponenty/Bluetoothpress';
 import { handleSouboryPress } from './Moje_komponenty/Souborypress';
-import Bluetooth_kotrola_pripojeni from './Moje_komponenty/Bluetooth_kontrola_pripojeni';
 import UseBLE from './Moje_komponenty/UseBLE';
 import RequestPermissions from './Moje_komponenty/RequestPermissions';
 import SeznamRadku from './Moje_komponenty/Seznam_radku';

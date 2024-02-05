@@ -110,7 +110,7 @@ function App(): JSX.Element {
 
       {/* Přidána tlačítka*/}
 			<TlacitkoBluetooth 
-			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍ" 
+			  title="PŘIPOJIT BLUETOOTH ZAŘÍZENÍgggggg" 
         onPress={() => {
           handleBluetoothPress();
         }}
